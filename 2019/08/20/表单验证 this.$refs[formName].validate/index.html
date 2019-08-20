@@ -11,7 +11,7 @@
 
     <title>
         
-        Byco | Blog
+        表单验证 this.$refs[formName].validate() - Byco | Blog
         
     </title>
 
@@ -65,7 +65,7 @@
                     <span>标签</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>存档</span>
@@ -80,6 +80,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题背景"><span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vaild-原理"><span class="toc-text">vaild 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义验证"><span class="toc-text">自定义验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li></ol>
+</div>
     
 </div>
 
@@ -107,65 +111,57 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        表单验证 this.$refs[formName].validate()
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-08-20 14:57:36</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Vue element-ui" title="Vue element-ui">Vue element-ui</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><img src="../img/validate.jpg" alt="alt"></p>
+<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">this.$refs[formName].validate((valid) =&gt; &#123;</span><br><span class="line">    if (valid) &#123;</span><br><span class="line">    this.loading = true</span><br><span class="line">    this.onSubmit()</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">    return false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-    <ul>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-20</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/20/表单验证 this.$refs[formName].validate/">
-                        <span>
-                            表单验证 this.$refs[formName].validate()
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-08</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/08/安装与使用/">
-                        <span>
-                            Vue-devtools for chrome 安装与使用
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-01</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/01/hello-world/">
-                        <span>
-                            新建/编辑 步骤
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
+<p>debug 发现 valid is not defined </p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>最后发现是自定义验证规则缺少 callback()函数 ，导致验证不通过。</p>
+<h2 id="vaild-原理"><a href="#vaild-原理" class="headerlink" title="vaild 原理"></a>vaild 原理</h2><ol>
+<li>valid是匿名函数【(valid)=> {}】的形式参数;</li>
+<li>匿名函数作为函数validate的实际参数；</li>
+<li>validate函数执行时，会为valid这个形式参数赋值。具体就是，validate函数执行时, 会在某一时刻执行匿名函数，并为valid赋值。如果validate校验为true, 执行匿名函数时valid赋值为true；如果validate校验为false，执行匿名函数时valid赋值为false。</li>
+</ol>
 
-    </ul>
-</div>
+<h2 id="自定义验证"><a href="#自定义验证" class="headerlink" title="自定义验证"></a>自定义验证</h2><ul>
+<li>Form 组件提供了表单验证的功能，只需要通过 rules 属性传入约定的验证规则，并将 Form-Item 的 prop 属性设置为需校验的字段名即可。</li>
+<li>规则在data 的 return之前声明，在rules里面 绑定赋值</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>el-form        表单验证规则rules，model属性绑定，ref标识</li>
+<li>el-form-item  prop属性绑定,prop一定必须要写在<el-form-item>上面</el-form-item></li>
+<li>如果使用自定义验证，每个验证函数一定调用了callback()函数，在验证不通过、通过时都要调用callback()函数，这里return callback()与callback()都可以；</li>
+</ul>
 
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
 </div>
 
     </div>
@@ -254,7 +250,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = ""
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
