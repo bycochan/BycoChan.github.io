@@ -11,7 +11,7 @@
 
     <title>
         
-        Tags - Byco | Blog
+        Vue-cli 3.0 项目结构 - Byco | Blog
         
     </title>
 
@@ -59,7 +59,7 @@
                     <span>主页</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
@@ -80,6 +80,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
     
 </div>
 
@@ -104,110 +108,42 @@
     
     <div class="index-middle">
         <!-- Main Content -->
-        <div id='tag_cloud' class="tags">
-    
-    <a href="#Vue" title="Vue" rel="3">Vue</a>
-    
-    <a href="#教程" title="教程" rel="1">教程</a>
-    
-    <a href="#Vue element-ui" title="Vue element-ui" rel="1">Vue element-ui</a>
-    
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Vue-cli 3.0 项目结构
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-08-21 09:25:45</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Vue" title="Vue">Vue</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>├── index.html<br>├── main.js<br>├── api<br>│   └── … # 抽取出API请求<br>├── components<br>│   ├── App.vue<br>│   └── …<br>└── store<br>    ├── index.js          # 我们组装模块并导出 store 的地方<br>    ├── actions.js        # 根级别的 action<br>    ├── mutations.js      # 根级别的 mutation<br>    └── modules<br>        ├── cart.js       # 购物车模块<br>        └── products.js   # 产品模块</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
 </div>
-
-<!-- 标签列表 -->
-
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Vue">
-                    <span class="tag-text">Vue</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2019/08/21/Vue-cli 3.0 项目结构/">
-            <h2 class="post-title">
-                Vue-cli 3.0 项目结构
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2019/08/21/Vue项目上传到github并预览/">
-            <h2 class="post-title">
-                vue项目上传Github预览
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2019/08/08/安装与使用/">
-            <h2 class="post-title">
-                Vue-devtools for chrome 安装与使用
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-</div>
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="教程">
-                    <span class="tag-text">教程</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2019/08/01/hello-world/">
-            <h2 class="post-title">
-                新建/编辑 步骤
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-</div>
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Vue element-ui">
-                    <span class="tag-text">Vue element-ui</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2019/08/20/表单验证 this.$refs[formName].validate/">
-            <h2 class="post-title">
-                表单验证 this.$refs[formName].validate()
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-</div>
-
 
     </div>
 </div>
@@ -295,7 +231,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = ""
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
