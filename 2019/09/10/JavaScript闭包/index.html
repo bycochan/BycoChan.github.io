@@ -11,7 +11,7 @@
 
     <title>
         
-        Byco | Blog
+        JavaScript闭包 - Byco | Blog
         
     </title>
 
@@ -65,7 +65,7 @@
                     <span>标签</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>存档</span>
@@ -80,6 +80,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript闭包"><span class="toc-text">JavaScript闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对闭包的理解"><span class="toc-text">1. 对闭包的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-JavaScript变量作用域"><span class="toc-text">2. JavaScript变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-从函数外部读取局部变量"><span class="toc-text">3. 从函数外部读取局部变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-闭包的优缺点"><span class="toc-text">4. 闭包的优缺点</span></a></li></ol></li></ol>
+</div>
     
 </div>
 
@@ -107,125 +111,48 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        JavaScript闭包
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-09-10 17:17:21</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="JavaScript闭包"><a href="#JavaScript闭包" class="headerlink" title="JavaScript闭包"></a>JavaScript闭包</h1><h2 id="1-对闭包的理解"><a href="#1-对闭包的理解" class="headerlink" title="1. 对闭包的理解"></a>1. 对闭包的理解</h2><ul>
+<li>闭包就是定义在函数内部的，能够读取函数内部的局部变量的 函数。<h2 id="2-JavaScript变量作用域"><a href="#2-JavaScript变量作用域" class="headerlink" title="2. JavaScript变量作用域"></a>2. JavaScript变量作用域</h2></li>
+<li>变量的作用域无非就是两种：全局变量和局部变量。</li>
+<li>Javascript使用特有的”链式作用域”结构（chain scope）<blockquote>
+<p>子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p>
+</blockquote>
+<h2 id="3-从函数外部读取局部变量"><a href="#3-从函数外部读取局部变量" class="headerlink" title="3. 从函数外部读取局部变量"></a>3. 从函数外部读取局部变量</h2></li>
+<li>在函数内部定义一个函数，作为返回值return出去<h2 id="4-闭包的优缺点"><a href="#4-闭包的优缺点" class="headerlink" title="4. 闭包的优缺点"></a>4. 闭包的优缺点</h2></li>
+<li>使用闭包可以读取函数内部的局部变量，可以让某个值常驻内存</li>
+<li>会造成内存消耗过大，内存泄露等</li>
+</ul>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-    <ul>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>09-10</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/09/10/JavaScript闭包/">
-                        <span>
-                            JavaScript闭包
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>09-10</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/09/10/前端MVVM框架-avalonJs2-学习/">
-                        <span>
-                            前端MVVM框架 avalonJs2 学习
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-21</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/21/Vue项目上传到github并预览/">
-                        <span>
-                            vue项目上传Github预览
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-21</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/21/Vue-cli 3.0 项目结构/">
-                        <span>
-                            Vue-cli 3.0 项目结构
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-20</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/20/表单验证 this.$refs[formName].validate/">
-                        <span>
-                            表单验证 this.$refs[formName].validate()
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-08</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/08/安装与使用/">
-                        <span>
-                            Vue-devtools for chrome 安装与使用
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-01</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/01/hello-world/">
-                        <span>
-                            新建/编辑 步骤
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-    </ul>
-</div>
+        <div id="lv-container">
+        </div>
 
+    </div>
 </div>
 
     </div>
@@ -314,7 +241,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = ""
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
