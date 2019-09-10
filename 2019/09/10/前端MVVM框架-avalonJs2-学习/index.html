@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Byco Blog">
+    <meta name="keyword" content="腾讯">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        前端MVVM框架 avalonJs2 学习 - Byco | Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Byco Chan</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#avalon2-学习"><span class="toc-text">avalon2 学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#01"><span class="toc-text">01</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入"><span class="toc-text">引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始使用"><span class="toc-text">开始使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vm"><span class="toc-text">vm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据填充"><span class="toc-text">数据填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示隐藏"><span class="toc-text">显示隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入移除"><span class="toc-text">插入移除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性操作"><span class="toc-text">属性操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式操作"><span class="toc-text">样式操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类名处理"><span class="toc-text">类名处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环操作"><span class="toc-text">循环操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件绑定"><span class="toc-text">事件绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据联动"><span class="toc-text">数据联动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据验证"><span class="toc-text">数据验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件使用"><span class="toc-text">组件使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画使用"><span class="toc-text">动画使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令总结"><span class="toc-text">指令总结</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        前端MVVM框架 avalonJs2 学习
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-09-10 17:04:10</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#avalon" title="avalon">avalon</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="avalon2-学习"><a href="#avalon2-学习" class="headerlink" title="avalon2 学习"></a>avalon2 学习</h1><ul>
+<li><h2 id="01"><a href="#01" class="headerlink" title="01"></a>01</h2></li>
+<li><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><blockquote>
+<ol>
+<li><code>npm install avalon2</code><br>下面回来,你发现有一个dist目录,然后使用script标签引用当中的avalon.js或avalon.modern.js文件</li>
+<li>cdn引入<br>CDN: <a href="https://unpkg.com/avalon2@2.2.8/dist/avalon.js" target="_blank" rel="noopener">https://unpkg.com/avalon2@2.2.8/dist/avalon.js</a><br>CDN2: <a href="https://cdnjs.com/libraries/avalon.js" target="_blank" rel="noopener">https://cdnjs.com/libraries/avalon.js</a><br>CDN3: <a href="https://cdn.staticfile.org/avalon.js/2.2.4/avalon.js" target="_blank" rel="noopener">https://cdn.staticfile.org/avalon.js/2.2.4/avalon.js</a> (2.2.4)</li>
+</ol>
+</blockquote>
+</li>
+<li><h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><blockquote>
+<ol>
+<li>MVVM将程序分为两大块，我们需要用avalon.define创建vm，用指令预先指定会变动的部分,其次是业务数据属性</li>
+<li>ms-controller是圈定vm的作用域。ms-controller其实是可以套嵌的。</li>
+<li>ms-duplex是双向指令，通过一些事件监听我们的输入操作，从而同步vm。</li>
+<li>“{ { } }” 是用于输出数据。</li>
+</ol>
+</blockquote>
+</li>
+<li><h3 id="vm"><a href="#vm" class="headerlink" title="vm"></a>vm</h3><blockquote>
+<p>vm是一种特殊的数据结构，看起来像普通对象，但它大部分属性都被重写了，从而实现“操作数据即操作视图”的效果。我们在定义vm时，一般需要定义$id，其次是其他业务数据属性</p>
+</blockquote>
+</li>
+<li><h3 id="数据填充"><a href="#数据填充" class="headerlink" title="数据填充"></a>数据填充</h3><blockquote>
+<p>“{ { } }”<br>ms-text<br>ms-html</p>
+</blockquote>
+</li>
+<li><h3 id="显示隐藏"><a href="#显示隐藏" class="headerlink" title="显示隐藏"></a>显示隐藏</h3><blockquote>
+<p>ms-visible<br>表达式为真值时则显示它所在的元素，为假值时则隐藏。不过显示不是 display:none这么简单，元素之前是用什么样式显示，需要保存下来，当表达式转换为真值时再还原。</p>
+</blockquote>
+</li>
+<li><h3 id="插入移除"><a href="#插入移除" class="headerlink" title="插入移除"></a>插入移除</h3><blockquote>
+<p>ms-if<br>ms-if指令与ms-visible很相似，都是让某元素“看不见”，不同的是ms-visible是通过CSS实现，ms-if是通过移除插入节点实现。</p>
+</blockquote>
+</li>
+<li><h3 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h3><blockquote>
+<p>ms-attr<br><code>&lt;div ms-attr=&quot;@attrObj&quot;&gt;&lt;/div&gt;</code><br><code>&lt;div ms-attr=&quot;{aaa:@a, bbb:@b+11, ccc: @fn(@d,@e)}&quot;&gt;&lt;/div&gt;</code></p>
+</blockquote>
+</li>
+<li><h3 id="样式操作"><a href="#样式操作" class="headerlink" title="样式操作"></a>样式操作</h3><blockquote>
+<p>ms-css<br>当你用对象字面量的方式传参时，注意存在－号的键名要用“”号括起来。</p>
+</blockquote>
+</li>
+<li><h3 id="类名处理"><a href="#类名处理" class="headerlink" title="类名处理"></a>类名处理</h3><blockquote>
+<p>ms-class ms-active ms-hover<br><code>&lt;div ms-class=&quot;[@aaa, @bbb, {xxx:false, yyy: true, zzz: @toggle}, &#39;222&#39;]&quot;&gt;&lt;/div&gt;</code></p>
+</blockquote>
+</li>
+<li><h3 id="循环操作"><a href="#循环操作" class="headerlink" title="循环操作"></a>循环操作</h3><blockquote>
+<ol>
+<li>如果想得到数组元素或对象的键值，在in关键字前指定一个新变量<br><code>&lt;div ms-for=&quot;el in @arrayOrObject&quot;&gt;&lt;/div&gt;</code></li>
+<li>如果要指定数组索引值或对象的键名，那么需要加一个小括号<br><code>&lt;div ms-for=&quot;(index,el) in @arrayOrObject&quot;&gt;&lt;/div&gt;</code></li>
+<li>可以用limitBy, filterBy， orderBy, selectBy过滤器生成新的循环体<br><code>&lt;div ms-for=&quot;(index,el) in @arrayOrObject ｜ filterBy(&#39;name&#39;)&quot;&gt;&lt;/div&gt;</code></li>
+</ol>
+</blockquote>
+</li>
+<li><h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><blockquote>
+<p>事件绑定是使用ms-on-☆绑定来实现，但avalon也提供了许多快捷方式，让用户能直接以ms-eventName调用那些常用事件，如下</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animationend、 blur、 change、 input、 click、 dblclick、 focus、 keydown、 keypress、 keyup、 mousedown、 mouseenter、 mouseleave、 mousemove、 mouseout、 mouseover、 mouseup、 scan、 scroll、 submit</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="数据联动"><a href="#数据联动" class="headerlink" title="数据联动"></a>数据联动</h3><blockquote>
+<p>在avalon中，双向绑定是由双工指设，ms-duplex实现的.双工指令是集成数据转换，数据格式化，数据验证，光标处理4大功能。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>数据转换 当数据从元素节点往vmodel同步时，转换成预期的数据。<pre><code>ms-duplex-string=&quot;@aaa&quot;
+ms-duplex-number=&quot;@aaa&quot;
+ms-duplex-boolean=&quot;@aaa&quot;
+ms-duplex-checked=&quot;@aaa&quot;</code></pre></li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>数据格式化<br> 数据格式化是放在属性值时，以过滤器形式存在，如<br> ms-duplex=’@aaa | uppercase’<br> ms-duplex=’@aaa | date(‘YYYY:MM:dd’)’</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>数据验证<br> 必须在所有表单元素的上方，加上ms-validate才会生效。这时每个表单元素要加上data-duplex-validator.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li>光标处理</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="5">
+<li>除此之后，ms-duplex还有一个回调，data-duplex-changed，用于与事件绑定一样</li>
+</ol>
+<ul>
+<li><h3 id="数据验证"><a href="#数据验证" class="headerlink" title="数据验证"></a>数据验证</h3>avalon内置验证规则有<table>
+<thead>
+<tr>
+<th>规则</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>required(true)</td>
+<td>必须输入的字段</td>
+</tr>
+<tr>
+<td>email(true)</td>
+<td>必须输入正确格式的电子邮件。</td>
+</tr>
+<tr>
+<td>url(true)</td>
+<td>必须输入正确格式的网址。</td>
+</tr>
+<tr>
+<td>date(true或正则)</td>
+<td>必须输入正确格式的日期。默认是要求YYYY-MM-dd这样的格式。</td>
+</tr>
+<tr>
+<td>number(true)</td>
+<td>必须输入合法的数字（负数，小数）。</td>
+</tr>
+<tr>
+<td>digits(true)</td>
+<td>必须输入整数。</td>
+</tr>
+<tr>
+<td>pattern(正则或true)</td>
+<td>让输入数据匹配给定的正则，如果没有指定，那么会到元素上找pattern属性转换成正则再匹配。</td>
+</tr>
+<tr>
+<td>equalto(ID名）</td>
+<td>输入值必须和 #id 元素的value 相同。</td>
+</tr>
+<tr>
+<td>maxlength：5</td>
+<td>输入长度最多是 5 的字符串（汉字算一个字符）。</td>
+</tr>
+<tr>
+<td>minlength：10</td>
+<td>输入长度最小是 10 的字符串（汉字算一个字符）。</td>
+</tr>
+<tr>
+<td>chs（true）</td>
+<td>要求输入全部是中文。</td>
+</tr>
+<tr>
+<td>max:5</td>
+<td>输入值不能大于 5。</td>
+</tr>
+<tr>
+<td>min:10</td>
+<td>输入值不能小于 10。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>这些验证规则要求使用ms-rules指令表示，要求为一个普通的JS对象。</p>
+<p>此外要求验征框架能动起来，还必须在所有表单元素外包一个form元素，在form元素上加ms-validate指令。</p>
+<ul>
+<li><h3 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h3>ms-widget</li>
+<li><h3 id="动画使用"><a href="#动画使用" class="headerlink" title="动画使用"></a>动画使用</h3>….</li>
+<li><h3 id="指令总结"><a href="#指令总结" class="headerlink" title="指令总结"></a>指令总结</h3>…</li>
+</ul>
+</blockquote>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/bycochan">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/chen-yuan-hua-82">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/5522321608">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/bycochan">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/bycochan">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/bycochan">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
